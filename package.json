@@ -1,0 +1,80 @@
+{
+  "name": "markdown-dynamic-include",
+  "displayName": "Markdown Dynamic File Include Preview",
+  "description": "Replace {{ filename }} keys in Markdown files with the content of the referenced file, and preview it.",
+  "version": "0.1.0",
+  "publisher": "ogawaramo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ogawaramo/markdown-dynamic-include"
+  },
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onCommand:markdown-dynamic-include.preview"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdown-dynamic-include.preview",
+        "title": "Markdown: Show Dynamic Include Preview",
+        "category": "Markdown",
+        "icon": "$(preview)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "markdown-dynamic-include.preview",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "markdown-dynamic-include.preview",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "editorLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Markdown Dynamic Include",
+      "properties": {
+        "markdownDynamicInclude.enablePreview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the dynamic file include preview."
+        },
+        "markdownDynamicInclude.pattern": {
+          "type": "string",
+          "default": "\\{\\{\\s*(.+?)\\s*\\}\\}",
+          "description": "Regular expression pattern for detecting include keys."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^16.0.0",
+    "@types/vscode": "^1.50.0",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "markdown-it": "^13.0.1"
+  }
+}
