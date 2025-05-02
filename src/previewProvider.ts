@@ -13,7 +13,7 @@ export class PreviewProvider {
 
     public async showPreview(doc: vscode.TextDocument) {
         // コマンドが実行されたことをユーザーに明示的に通知
-        vscode.window.showInformationMessage('Markdown Dynamic Include プレビューを表示します');
+        // vscode.window.showInformationMessage('Markdown Dynamic Include プレビューを表示します');
         
         const config = vscode.workspace.getConfiguration('markdownDynamicInclude');
         const enablePreview = config.get<boolean>('enablePreview', true);
@@ -71,11 +71,11 @@ export class PreviewProvider {
             console.log('プレビュー生成完了');
             
             // 置換結果を通知
-            if (isTextChanged) {
-                vscode.window.showInformationMessage('特殊キーをファイル内容で置換しました');
-            } else {
-                vscode.window.showWarningMessage('特殊キーが見つからなかったか、置換に失敗しました');
-            }
+            // if (isTextChanged) {
+            //     vscode.window.showInformationMessage('特殊キーをファイル内容で置換しました');
+            // } else {
+            //     vscode.window.showWarningMessage('特殊キーが見つからなかったか、置換に失敗しました');
+            // }
         } catch (error: any) {
             // エラーが起きたらログ出力＆パネルにもエラー表示
             console.error(`エラー: ${error.message}`);

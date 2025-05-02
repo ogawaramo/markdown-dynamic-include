@@ -2,7 +2,7 @@
   "name": "markdown-dynamic-include",
   "displayName": "Markdown Dynamic File Include Preview",
   "description": "Replace {{ filename }} keys in Markdown files with the content of the referenced file, and preview it.",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "publisher": "ogawaramo",
   "repository": {
     "type": "git",

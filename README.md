@@ -20,3 +20,17 @@ VSCode拡張機能: Markdownファイル中の `{{ ファイル名 }}` を探し
 ## ライセンス
 
 MIT 
+
+---
+パッケージの作り方
+npm run compile
+npm run package
+
+初期のインストール方法
+code --install-extension markdown-dynamic-include-0.1.0.vsix
+
+パッケージの更新方法
+code --list-extensions
+code --uninstall-extension 拡張子
+code --install-extension markdown-dynamic-include-0.1.1.vsix
+
